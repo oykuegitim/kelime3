@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelime Yanıp Sönme Egzersizi</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+        #word {
+            font-size: 48px;
+            font-weight: bold;
+            color: #333;
+            margin: 20px;
+        }
+        #controls {
+            margin-top: 20px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div id="word">Hazır mısın?</div>
+    <div id="controls">
+        <button onclick="startExercise(1000)">Çok Yavaş</button>
+        <button onclick="startExercise(700)">Yavaş</button>
+        <button onclick="startExercise(500)">Orta</button>
+        <button onclick="startExercise(300)">Hızlı</button>
+        <button onclick="startExercise(150)">Çok Hızlı</button>
+    </div>
+
+    <script>
+        const words = ['ve', 'bir', 'bu', 'da', 'ne', 'ben', 'sen', 'biz', 'siz', 'onlar', 'ile', 'gibi', 'için', 'çok', 'az', 'daha', 'en', 'var', 'yok', 'mi', 'neden', 'nasıl', 'zaman', 'şimdi', 'sonra', 'önce', 'bugün', 'yarın', 'gece', 'gündüz', 'elma', 'kitap', 'masa', 'kedi', 'araba', 'kalem', 'defter', 'okul', 'ev', 'bahçe', 'oyun', 'ders', 'yemek', 'su', 'hava', 'ışık', 'renk', 'göz', 'kulak', 'burun'];
+        let interval;
+        function startExercise(speed) {
+            clearInterval(interval);
+            let index = 0;
+            interval = setInterval(() => {
+                document.getElementById("word").textContent = words[index];
+                index = (index + 1) % words.length;
+            }, speed);
+        }
+    </script>
+</body>
+</html>
